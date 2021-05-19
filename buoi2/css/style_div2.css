@@ -1,0 +1,106 @@
+body {
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+}
+#wrap {
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgb(253, 253, 253);
+    padding: 10px;
+}
+#title {
+    background-image: url("../../img/banner.jpg");
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#title h1 {
+    color: yellow;
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+    padding-top: 30px;
+    text-shadow: 3px 3px black;
+}
+
+#menu{
+    
+}
+#menu>ul{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: center;
+    justify-content: space-between;
+}
+#menu ul li{
+    width: 25%;
+    background-color: black;
+    
+}
+#menu ul li:hover{
+    background-color: white;
+}
+#menu ul li:hover a{
+    color: black;
+}
+#menu ul li:hover ul{
+    display: block;
+}
+#menu ul li a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    border: 2px dotted yellow;
+}
+#menu ul li ul{
+    position: absolute;
+    display: none;
+    padding: 0;
+    background-color: white;
+    width: 15%;
+}
+#menu ul li ul li{
+    list-style-type: none;
+    width: 100%;
+    background-color: transparent;
+}
+#menu ul li ul li:hover a{
+    background-color: black;
+    color: white;
+}
+#menu ul li ul li a{
+    color: black;
+    width: 100%;
+    display: block;
+    margin: 0;
+
+}
+
+#content {
+    border-bottom: 3px dotted black;
+}
+#content h4 {
+    color: red;
+    border-bottom: 3px dotted red;
+    display: inline;
+    font-size: 30px;
+    margin: 10px;
+}
+#content p {
+    font-weight: bold;
+}
+#footer {
+    padding: 20px;
+    text-align: center;
+}
+#footer::after{
+    content: "Liên hệ: Lê Quang Thắng - B1704850 - thangb1704850@student.ctu.edu.vn";
+}
+#footer p{
+    display: none;
+}

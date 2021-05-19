@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+</style>
+<body>
+    <div class="container" style="width: 30%; margin: 0 auto; text-align: center;margin-top: 50px;">
+        <h2 style="text-align: center; margin-bottom: 30px; color: red; margin-top: 30px;">Đăng ký tài khoản mới</h2>
+        <p><strong>Vui lòng điền đầy đủ thông tin bên dưới để đăng ký tài khoản</strong></p>
+        <div class="form-style" style="border: 1px solid black; padding: 10px;">
+            <form method="POST" action="./../buoi1/xuLy.php" style="background-color: rgb(179, 179, 179);" enctype="multipart/form-data" onsubmit="return DangKy()">
+                <table style="padding:10px;text-align: left;">
+                    <tr>
+                        <th style="font-weight: normal; width: 40%;">Tên đăng nhập</th>
+                        <td style="width: 10%;"></td>
+                        <td colspan="2">
+                            <input type="text" name="tenDangNhap" id="tenDangNhap">
+                            <span id="errorUsername"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="height: 15px;"></th>
+                        <td></td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <th style="font-weight: normal;">Mật khẩu</th>
+                        <td></td>
+                        <td colspan="2">
+                            <input type="password" name="matKhau" id="matKhau">
+                            <span id="errorPassword"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="height: 15px;"></th>
+                        <td></td>
+                        <td>
+
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="font-weight: normal;">Gõ lại mật khẩu</th>
+                        <td></td>
+                        <td colspan="2">
+                            <input type="password" name="nhapLaiMatKhau" id="nhapLaiMatKhau">
+                            <span id="errorConfirmPassword"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="height: 15px;"></th>
+                        <td></td>
+                        <td>
+
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="font-weight: normal;">Hình đại diện</th>
+                        <td></td>
+                        <td colspan="2">
+                            <input type="file" value="" name="hinhAnh" id="Image" >
+                            <span id="errorImage" style="color: red"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="height: 15px;"></th>
+                        <td></td>
+                        <td>
+
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="font-weight: normal;">Giới tính</th>
+                        <td></td>
+                        <td>
+                            <input type="radio" name="gioiTinh" id="" value="Nam" checked>
+                            <label for="nam">Nam</label>
+                            <input type="radio" name="gioiTinh" id="" value="Nữ">
+                            <label for="nu">Nữ</label>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="height: 15px;"></th>
+                        <td></td>
+                        <td>
+
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="font-weight: normal;">Nghề nghiệp</th>
+                        <td></td>
+                        <td>
+                            <select name="ngheNghiep" id="">
+                                <option value="Học sinh">Học sinh</option>
+                                <option value="Sinh viên">Sinh viên</option>
+                                <option value="Giáo viên">Giáo viên</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="height: 15px;"></th>
+                        <td></td>
+                        <td>
+
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left; font-weight: normal;">Sở thích</th>
+                        <td></td>
+                        <td colspan="2">
+                            <input type="checkbox" name="thich[]" value="Thể thao">
+                            <label for="theThao">Thể thao</label>
+                            <input type="checkbox" name="thich[]" value="Du Lịch">
+                            <label for="duLich">Du lịch</label>
+                            <input type="checkbox" name="thich[]" value="Âm nhạc">
+                            <label for="amNhac">Âm nhạc</label>
+                            <br>
+                            <input type="checkbox" name="thich[]" value="Thời trang">
+                            <label for="thoiTrang">Thời trang</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="height: 15px;"></th>
+                        <td></td>
+                        <td>
+
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                        <td>
+                            <button style="padding: 0 10px; border-radius: 3px; border: 1px solid;" type="submit">Đăng ký</button>
+                            <button style="padding: 0 10px; border-radius: 3px; border: 1px solid;">Làm lại</button>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <script src="./Validation.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

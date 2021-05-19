@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="This is website KFC">
+    <title>KFC</title>
+</head>
+<style>
+    a{
+        text-decoration: none;
+    }
+    ul{
+        padding: 0 20px;
+        margin: 0 auto;
+    }
+    ul li {
+        list-style-type: none;
+        display: inline-block;
+    }
+
+    /* Dropdown Button */
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+</style>
+
+<body>
+    <div class="container" style="width: 80%; margin: 0 auto;">
+        <h1 style="text-align: center;">Lê Quang Thắng <br>
+            B1704850 <br>
+            Lập trình web nhóm chiều thứ 2
+        </h1>
+
+        <a href="https://kfcvietnam.com.vn/vi/thuc-don/14/combo-1-nguoi.html">
+            <img src="../img/logo.png" alt="Logo KFC" width="100px">
+        </a>
+
+        <h1 style="background-color: red;color: white;">KFC</h1>
+        <ul>
+            <li><a href="#GT" class="dropbtn">Giới thiệu</a></li>
+            <li><a href="#PT" class="dropbtn">Phát triển</a></li>
+            <li><a href="#BG" class="dropbtn">Bảng giá</a></li>
+            <li><a href="./GioiThieu.html" class="dropbtn">Đi tới trang khuyến mãi</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Bài tập buổi 1</button>
+                    <div class="dropdown-content">
+                        <a href="./Bai1.html">Bài tâp 1</a>
+                        <a href="./Bai2.html">Bài tâp 2</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Bài tập buổi 2</button>
+                    <div class="dropdown-content">
+                        <a href="../buoi1/Bai1.html">Bài tâp 1</a>
+                        <a href="../buoi2/B2Bai2.html">Bài tâp 2</a>
+                        <a href="../index.html">Bài tâp 3</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Bài tập buổi 3</button>
+                    <div class="dropdown-content">
+                        <a href="./Bai1.html">Bài tâp 1</a>
+                        <a href="./Bai2.html">Bài tâp 2</a>
+                        <a href="./Bai2.html">Bài tâp 3</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Bài tập buổi 4</button>
+                    <div class="dropdown-content">
+                        <a href="./Bai1.html">Bài tâp 1</a>
+                        <a href="./Bai2.html">Bài tâp 2</a>
+                        <a href="./Bai2.html">Bài tâp 3</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Bài tập buổi 5</button>
+                    <div class="dropdown-content">
+                        <a href="./Bai1.html">Bài tâp 1</a>
+                        <a href="./Bai2.html">Bài tâp 2</a>
+                        <a href="./Bai2.html">Bài tâp 3</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="CGT" id="GT" style="background-color: brown;">
+            <h2 style="text-align: center; color: white;">Giới thiệu KFC</h2>
+            <p style="color: white;"> <a href="https://kfcvietnam.com.vn/vi/bat-dau-dat-hang.html"
+                    style="color: yellow;">KFC</a> là cụm từ viết tắt của Kentucky Fried Chicken - Gà rán Kentucky, một
+                trong các thương hiệu thuộc Tập đoàn Yum Brands Inc(Hoa Kỳ). KFC chuyên về các sản phẩm gà rán và nướng,
+                với các món ăn kèm theo và các loại sandwiches chế biến từ thịt gà tươi. Hiện nay đang có hơn 20.000 nhà
+                hàng KFC tại 109 quốc gia và vùng lãnh thổ trên toàn thế giới.
+                <br>
+                <b style="color: black;">KFC nổi tiếng thế giới với công thức chế biến gà rán truyền thống Original
+                    Recipe, được tạo ra bởi cùng một công thức pha trộn bí mật 11 loại thảo mộc và gia vị khác nhau do
+                    Đại tá Harland Sanders hoàn thiện hơn nửa thế kỷ trước.</b>
+                Ngoài thực đơn gà rán, KFC còn đa dạng hóa sản phẩm tạo nên thực đơn vô cùng phong phú dành cho người
+                tiêu dùng trên toàn thế giới có thể thưởng thức hơn 300 món ăn khác nhau từ món gà nướng tại thị trường
+                Việt Nam cho tới sandwich cá hồi tại Nhật Bản.
+                <br>
+                <img src="../img/about-pic-1.png" alt="Ảnh giới thiệu 1" width="400px">
+            </p>
+        </div>
+        <p>
+        <div class="CPT" id="PT" style="background-color: brown;">
+            <h2 style="color: white;text-align: center;">CÁC CỘT MỐC PHÁT TRIỂN NHÀ HÀNG ĐẦU TIÊN TẠI CÁC TỈNH THÀNH
+            </h2>
+            <ul style="color: white;">
+                <li>Tháng 12/1997 - TP.HCM</li>
+                <li>Tháng 06/2006 - Hà Nội</li>
+                <li>Tháng 08/2006 - Hải Phòng & Cần Thơ</li>
+                <li>Tháng 07/2007 - Đồng Nai - Biên Hòa</li>
+                <li>Tháng 01/2008 - Vũng Tàu</li>
+                <li>Tháng 05/2008 - Huế</li>
+                <li>Tháng 11/2009 - Đà Nẵng</li>
+            </ul>
+            <img src="../img/about-pic-3.png" alt="Ảnh giới thiệu 3">
+        </div>
+        <div class="CBG" id="BG">
+            <h2 style="text-align: center;">Bảng Giá Nước đi kèm của KFC</h2>
+            <table border="1px" cellspacing="1" cellpadding="20" width="900px" align="center">
+                <tr>
+                    <th colspan="2">Name</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td rowspan="2" colspan="2" style="text-align: right;" background="../img/greentea.jpg">Green Tea
+                    </td>
+                    <td>Hot</td>
+                    <td rowspan="2" style="text-align: center;">25.000</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">Cold</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" colspan="2" style="text-align: center;" background="../img/blacktea.jpg">Black Tea
+                    </td>
+                    <td>Hot</td>
+                    <td rowspan="2" style="text-align: center;">28.000</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">Cold</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" colspan="2" style="text-align: left;" background="../img/olongtea.jpg">Olong Tea</td>
+                    <td>Hot</td>
+                    <td rowspan="2" style="text-align: center;">30.000</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">Cold</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" background="../img/fruit.jpg" style="text-align: center;">Fruit Tea</td>
+                    <td>Lemon Tea</td>
+                    <td rowspan="3" style="text-align: center;">Cold (Only)</td>
+                    <td style="text-align: center;">30.000</td>
+                </tr>
+                <tr>
+                    <td>Apple Tea</td>
+                    <td rowspan="2" style="text-align: center;">35.000</td>
+                </tr>
+                <tr>
+                    <td>Peach Tea</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" background="../img/milktea.png" style="text-align: center;">Milk Tea</td>
+                    <td>Green Milk Tea</td>
+                    <td rowspan="3">Hot</td>
+                    <td style="text-align: center;">27.000</td>
+                </tr>
+                <tr>
+                    <td>Black Milk Tea</td>
+                    <td style="text-align: center;">30.000</td>
+                </tr>
+                <tr>
+                    <td>Olong Milk Tea</td>
+                    <td style="text-align: center;">32.000</td>
+                </tr>
+            </table>
+        </div>
+        </p>
+    </div>
+</body>

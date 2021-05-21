@@ -16,6 +16,46 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách sản phẩm</title>
+    <script type="text/javascript">
+		var hinh = [<?php 
+				$sql='SELECT hinhanhsp FROM sanpham where idtv = '.$id.';';
+				$result = $con->query($sql);
+				if($result->num_rows > 0){
+					while($row = $result->fetch_assoc()){						
+						echo '"'.$row["hinhanhsp"].'",';
+					}
+				}
+		?>];
+		var ten = [<?php 
+				$sql='SELECT tensp FROM sanpham where idtv = '.$id.';';
+				$result = $con->query($sql);
+				if($result->num_rows > 0){
+					while($row = $result->fetch_assoc()){						
+						echo '"'.$row["tensp"].'",';
+					}
+				}
+		?>];
+		var gia = [<?php 
+				$sql='SELECT giasp FROM sanpham where idtv = '.$id.';';
+				$result = $con->query($sql);
+				if($result->num_rows > 0){
+					while($row = $result->fetch_assoc()){						
+						echo '"'.$row["giasp"].'",';
+					}
+				}
+		?>];
+		var idsanpham = [<?php 
+				$sql='SELECT idsp FROM sanpham where idtv = '.$id.';';
+				$result = $con->query($sql);
+				if($result->num_rows > 0){
+					while($row = $result->fetch_assoc()){						
+						echo '"'.$row["idsp"].'",';
+					}
+				}
+		?>];
+
+		
+	</script>
 </head>
 <style>
     table,

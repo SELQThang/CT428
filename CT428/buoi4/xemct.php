@@ -17,16 +17,6 @@ $conn->close();
     <title>Chi tiết sản phẩm</title>
     <script>
         // bai tap co nhieu cach lam, code trong tap tin nay chi la vi du ve 1 trong nhung cach lam de sinh vien tham khao
-        var IMAGE_PATHS = [];
-        IMAGE_PATHS[0] = "img/hp.jpg";
-        IMAGE_PATHS[1] = "img/dell.jpg";
-        IMAGE_PATHS[2] = "img/acer.jpg";
-        IMAGE_PATHS[3] = "img/asus.jpg";
-        var IMAGE_LINK = [];
-        IMAGE_LINK[0] = "http://www.hp.com";
-        IMAGE_LINK[1] = "http://www.dell.com";
-        IMAGE_LINK[2] = "http://www.acer.com.vn";
-        IMAGE_LINK[3] = "http://www.asus.com";
         imgItem = 0;
 
         function changeimgItem(item) {

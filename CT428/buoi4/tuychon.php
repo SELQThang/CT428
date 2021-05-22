@@ -49,7 +49,7 @@ $conn->close();
                 </a>
             </li>
             <li>
-                <a href="./dssp.php">
+                <a href="./xemct.php?idSP=1">
                     Xem danh sách sản phẩm
                 </a>
             </li>

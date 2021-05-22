@@ -90,9 +90,6 @@ include('./session.php');
         <form action="./tuychon.php" class="form-inline">
             <button type="submit" style="padding: 10px; margin-top: 20px;">Trang chủ</button>
         </form>
-        <form action="./dssp.php" class="form-inline">
-            <button type="submit" style="padding: 10px; margin-top: 20px;">Danh sách sản phẩm</button>
-        </form>
     </div>
 </body>
 

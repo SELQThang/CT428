@@ -5,7 +5,6 @@ $idspSelect = $_GET['idSP'];
 $sql = "select * from sanpham where idsp = '$idspSelect'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
-$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,43 +14,7 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết sản phẩm</title>
-    <script>
-        // bai tap co nhieu cach lam, code trong tap tin nay chi la vi du ve 1 trong nhung cach lam de sinh vien tham khao
-        imgItem = 0;
 
-        function changeimgItem(item) {
-            // sinh vien tu viet code cho changeimgItem:
-            // item = 1: hien thi file anh tiep theo 
-            // item = -1: hien thi file anh truoc do
-            if (imgItem < IMAGE_PATHS.length) {
-                imgItem = imgItem + item;
-                if (imgItem > IMAGE_PATHS.length - 1) {
-                    imgItem = 0;
-                }
-                if (imgItem >= 0 && imgItem <= 3) {
-                    document.getElementById("laptopImg").src = IMAGE_PATHS[imgItem];
-                    document.getElementById("laptopSel").value = imgItem;
-                }
-                if (imgItem < 0) {
-                    imgItem = 3;
-                    document.getElementById("laptopImg").src = IMAGE_PATHS[imgItem];
-                    document.getElementById("laptopSel").value = imgItem;
-                }
-                if (imgItem > 3) {
-                    imgItem = 0;
-                }
-            }
-        }
-
-        function chooseimgItem(item) {
-            // sinh vien tu viet code cho chooseimgItem:
-            // item = x: hien thi file anh x
-            item = item * 1;
-            document.getElementById("laptopImg").src = IMAGE_PATHS[item];;
-            imgItem = item;
-        }
-        //-->
-    </script>
 </head>
 <style>
     form {
@@ -97,7 +60,9 @@ $conn->close();
                 <tr>
                     <th style="font-weight: normal;">Giá sản phẩm:</th>
                     <td>
-                        <?php echo $row['giasp']; ?>
+                        <?php
+                        echo $row['giasp'];
+                        ?>
                         <span>(VND)</span>
                     </td>
                 </tr>
@@ -116,10 +81,19 @@ $conn->close();
                         <input type="button" name="previous" value="Previous" onclick="changeimgItem(-1)">
                         <input type="button" name="next" value="Next" onclick="changeimgItem(1)">
                         <select name="laptopSel" id="laptopSel" onchange="chooseimgItem(value)">
-                            <option value="0">HP</option>
-                            <option value="1">Dell</option>
-                            <option value="2">Acer</option>
-                            <option value="3">Asus</option>
+                            <?php
+                            $sql = "select idsp,tensp from sanpham";
+                            $result = $conn->query($sql);
+                            while ($row = $result->fetch_assoc()) {
+                                echo "
+                                <option value='";
+                                echo $row['idsp'] - 1;
+                                echo "'>";
+                                echo $row['tensp'];
+                                echo "</option>
+                                ";
+                            }
+                            ?>
                         </select>
                     </td>
                 </tr>
@@ -133,13 +107,56 @@ $conn->close();
         <form action="./tuychon.php">
             <button type="submit" style="padding: 10px; margin-top: 20px;">Trang chủ</button>
         </form>
-        <form action="./dssp.php">
-            <button type="submit" style="padding: 10px; margin-top: 20px;">Danh sách sản phẩm</button>
-        </form>
         <form action="./themsp.php">
             <button type="submit" style="padding: 10px; margin-top: 20px;">Thêm sản phẩm</button>
         </form>
     </div>
+    <script>
+        // bai tap co nhieu cach lam, code trong tap tin nay chi la vi du ve 1 trong nhung cach lam de sinh vien tham khao
+        var IMAGE_PATHS = [
+            <?php
+            $sql2 = "select hinhanhsp from sanpham";
+            $result2 = $conn->query($sql2);
+            while ($row = $result2->fetch_assoc()) {
+                echo '"' . $row["hinhanhsp"] . '",';
+            }
+            ?>
+        ];
+        imgItem = 0;
+
+        function changeimgItem(item) {
+            // sinh vien tu viet code cho changeimgItem:
+            // item = 1: hien thi file anh tiep theo 
+            // item = -1: hien thi file anh truoc do
+            if (imgItem < IMAGE_PATHS.length) {
+                imgItem = imgItem + item;
+                if (imgItem > IMAGE_PATHS.length - 1) {
+                    imgItem = 0;
+                }
+                if (imgItem >= 0 && imgItem <= IMAGE_PATHS.length - 1) {
+                    document.getElementById("laptopImg").src = IMAGE_PATHS[imgItem];
+                    document.getElementById("laptopSel").value = imgItem;
+                }
+                if (imgItem < 0) {
+                    imgItem = IMAGE_PATHS.length - 1;
+                    document.getElementById("laptopImg").src = IMAGE_PATHS[imgItem];
+                    document.getElementById("laptopSel").value = imgItem;
+                }
+                if (imgItem > IMAGE_PATHS.length - 1) {
+                    imgItem = 0;
+                }
+            }
+        }
+
+        function chooseimgItem(item) {
+            // sinh vien tu viet code cho chooseimgItem:
+            // item = x: hien thi file anh x
+            item = item * 1;
+            document.getElementById("laptopImg").src = IMAGE_PATHS[item];;
+            imgItem = item;
+        }
+        //-->
+    </script>
 </body>
 
 </html>

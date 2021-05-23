@@ -8,5 +8,5 @@ $login_session = $row['tendangnhap'];
 $id_session = $row['id'];
 if (!isset($_SESSION['tendangnhap'])) {
     header("location: ./dangnhap_js.html");
-    // die();
+    die();
 }

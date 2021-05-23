@@ -29,7 +29,7 @@
             $hinhAnh
         );
         $con->close();
-        header("Location: ./../buoi4/dangnhap_js.html");
+        header("Location: ./dangnhap_js.html");
     }
     else{
         echo "alert 'Mật khẩu không giống! Vui lòng nhập lại mật khẩu!'";

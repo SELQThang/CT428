@@ -3,7 +3,6 @@ include('./session.php');
 include('./connectDB.php');
 $sql = "select idsp, tensp, giasp from sanpham";
 $result = $conn->query($sql);
-$item = $result->fetch_all();
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -54,25 +53,40 @@ $conn->close();
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($item as $row) : array_map('htmlentities', $row); ?>
-                        <tr onmouseup="show(<?php echo $idItem = $row[0][0]; ?>)">
-                            <td><?php echo implode('</td><td>', $row); ?></td>
-                            <td>
-                                <a href='./xemct.php?idSP=<?php echo $idItem = $row[0][0]; ?>'>Xem chi tiết</a>
-                            </td>
-                            <td>
-                                <a href='./edit.php?idSP=<?php echo $idItem = $row[0][0]; ?>'>
-                                    <img src="./../img/edit.png" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <a href='./del.php?idSP=<?php echo $idItem = $row[0][0]; ?>'>
-                                    <img src="./../img/delete.png" alt="">
-                                </a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                    $string = "";
+                    while ($row = $result->fetch_assoc()) {
+                        $idItem = $row['idsp'];
+                        $tenItem = $row['tensp'];
+                        $giaItem = $row['giasp'];
+                        $string .= "
+                                <tr>
+                                    <td>" . $idItem . "</td>
+                                    <td onmouseover='show(" . $idItem . ")' onmouseout='hide()'>" . $tenItem . "</td>
+                                    <td>" . $giaItem . "</td>
+                                    <td>
+                                        <a href='./xemct.php?idSP=" . $idItem . "'>Xem chi tiết</a>
+                                    </td>
+                                    <td>
+                                        <a href='./edit.php?idSP=" . $idItem . "'>
+                                            <img src='./../img/edit.png' alt=''>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href='./del.php?idSP=" . $idItem . "'>
+                                            <img src='./../img/delete.png' alt=''>
+                                        </a>
+                                    </td>
+                                </tr>    
+                        ";
+                    }
+                    echo $string;
+                    ?>
                 </tbody>
+                <tfoot id="tfoot">
+                    <tr>
+                        <td colspan="6" id="hinhAnh" style="padding: 0; margin: 0; height: 300px"></td>
+                    </tr>
+                </tfoot>
             </table>
             <form action="./tuychon.php" class="form-inline">
                 <button type="submit" style="padding: 10px; margin-top: 20px;">Trang chủ</button>
@@ -80,7 +94,7 @@ $conn->close();
             <form action="./themsp.php">
                 <button type="submit" style="padding: 10px; margin-top: 20px;">Thêm sản phẩm</button>
             </form>
-            <div id="hinhAnhSP"></div>
+
         </div>
     </div>
     <script type="text/javascript">
@@ -88,18 +102,22 @@ $conn->close();
             var xmlhttp;
             if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp = new XMLHttpRequest();
-
             } else { // code for IE6, IE5
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 
             }
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById('hinhAnhSP').innerText = 
+                    document.getElementById("hinhAnh").style = "visibility: visible";
+                    document.getElementById("hinhAnh").innerHTML = xmlhttp.responseText;
                 }
             }
-            xmlhttp.open("GET", "Buoi5_Bai3PHP.php?idsp=" + idsp, true);
+            xmlhttp.open("GET", "Buoi5_Bai3PHP.php?idSP=" + idsp, true);
             xmlhttp.send();
+        }
+
+        function hide() {
+            document.getElementById("hinhAnh").style = "visibility: hidden";
         }
     </script>
 </body>

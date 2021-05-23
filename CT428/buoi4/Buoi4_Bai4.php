@@ -1,6 +1,6 @@
 <?php
-include('./buoi3/session.php');
-include('./buoi3/connectDB.php');
+include('./session.php');
+include('./connectDB.php');
 $idspSelect = $_GET['idSP'];
 $sql = "select * from sanpham where idsp = '$idspSelect'";
 $result = $conn->query($sql);

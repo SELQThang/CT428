@@ -39,18 +39,18 @@ $conn->close();
         <h3>Bạn muốn làm gì?</h3>
         <ul>
             <li>
-                <a href="./thongtincanhan.php">
-                    Xem thông tin cá nhân
+            <a href="./Buoi5_Bai2.php">
+                    Xem danh sách sản phẩm bài 2
                 </a>
             </li>
             <li>
-                <a href="./themsp.php">
-                    Thêm sản phẩm
+                <a href="./Buoi5_Bai3.php">
+                    Xem danh sách sản phẩm bài 3
                 </a>
             </li>
             <li>
-                <a href="./dssp.php">
-                    Xem danh sách sản phẩm
+                <a href="./Buoi5_Bai4.php">
+                    Xem danh sách sản phẩm bài 4
                 </a>
             </li>
             <li>

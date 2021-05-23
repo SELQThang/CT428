@@ -2,29 +2,33 @@
 include('./session.php');
 include('./connectDB.php');
 $tensp = $_GET['tensp'];
-$sql = "select idsp, tensp, giasp from sanpham where tensp = '$tensp'";
+$sql = "select idsp, tensp, giasp from sanpham where tensp like '%$tensp%'";
 $result = $conn->query($sql);
-$item = $result->fetch_all();
-echo "
-        <?php
-        foreach ($item as $row) : array_map('htmlentities', $row); ?>
+$string = "";
+while ($row = $result->fetch_assoc()) {
+    $idItem = $row['idsp'];
+    $tenItem = $row['tensp'];
+    $giaItem = $row['giasp'];
+    $string .= "
             <tr>
-                <td><?php echo implode('</td><td>', $row); ?></td>
+                <td>" . $idItem . "</td>
+                <td>" . $tenItem . "</td>
+                <td>" . $giaItem . "</td>
                 <td>
-                    <a href='./xemct.php?idSP=<?php echo $idItem = $row[0][0]; ?>'>Xem chi tiết</a>
+                    <a href='./xemct.php?idSP=" . $idItem . "'>Xem chi tiết</a>
                 </td>
                 <td>
-                    <a href='./edit.php?idSP=<?php echo $idItem = $row[0][0]; ?>'>
+                    <a href='./edit.php?idSP=" . $idItem . "'>
                         <img src='./../img/edit.png' alt=''>
                     </a>
                 </td>
                 <td>
-                    <a href='./del.php?idSP=<?php echo $idItem = $row[0][0]; ?>'>
+                    <a href='./del.php?idSP=" . $idItem . "'>
                         <img src='./../img/delete.png' alt=''>
                     </a>
                 </td>
-            </tr>
-        <?php endforeach; ?>
-
-";
+            </tr>    
+    ";
+}
+echo $string;
 $conn->close();

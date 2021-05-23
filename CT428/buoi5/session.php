@@ -7,6 +7,6 @@ $row = mysqli_fetch_array($session_sql, MYSQLI_ASSOC);
 $login_session = $row['tendangnhap'];
 $id_session = $row['id'];
 if (!isset($_SESSION['tendangnhap'])) {
-    header("location: ./dangnhap.html");
+    header("location: ./dangnhap_js.html");
     // die();
 }

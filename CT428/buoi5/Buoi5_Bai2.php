@@ -11,7 +11,7 @@ $row = mysqli_fetch_array($session_sql, MYSQLI_ASSOC);
 $login_session = $row['tendangnhap'];
 $id_session = $row['id'];
 if (!isset($_SESSION['tendangnhap'])) {
-    header("location: ./../buoi3/dangnhap.html");
+    header("location: ./dangnhap_js.html");
     // die();
 }
 $sql = "select idsp, tensp, giasp from sanpham";

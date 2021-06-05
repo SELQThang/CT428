@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="showItem()">
+    <div class="container">
+      <div class="container-content">
+        <div class="header">
+          <img
+            src="./image/9ce60826-1ffa-4f76-beed-c248a895fb0c_1.5f4159ff5cb7763cfe111643f1d61043.jpeg"
+            alt=""
+            id="brand-img"
+          />
+          <h1 id="brand-name">
+            Perfume <span id="brand-name-span">World</span>
+          </h1>
+        </div>
+        <div id="navbar">
+          <ul id="navbar-nav">
+            <li class="navbar-item-li" id="index">
+              <a href="#" class="navbar-item-a" onclick="showItem()"
+                >Trang chủ</a
+              >
+            </li>
+            <li class="navbar-item-li" id="addBrandName">
+              <a href="#" class="navbar-item-a">Thêm nhãn hiệu</a>
+            </li>
+            <li class="navbar-item-li" id="addPerfume">
+              <a href="#" class="navbar-item-a" onclick="themNuocHoa()"
+                >Thêm nước hoa</a
+              >
+            </li>
+            <li class="navbar-item-li" id="filterBrandName">
+              <a href="#" class="navbar-item-a">Liệt kê nhãn hiểu</a>
+            </li>
+            <li class="navbar-item-li" id="filterPerfume">
+              <a href="#" class="navbar-item-a" onclick="lietKeNuocHoa()"
+                >Liệt kê nước hoa</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="content" id="content2"></div>
+        <hr />
+        <p>
+          Họ tên: Lê Quang Thắng
+          <br />
+          MSSV: B1704850
+        </p>
+      </div>
+    </div>
+    <script>
+      function showItem() {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+          // code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp = new XMLHttpRequest();
+        } else {
+          // code for IE6, IE5
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("content2").innerHTML =
+              xmlhttp.responseText;
+          }
+        };
+        xmlhttp.open("GET", "selectIndex.php", true);
+        xmlhttp.send();
+      }
+      function themNuocHoa() {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+          // code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp = new XMLHttpRequest();
+        } else {
+          // code for IE6, IE5
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("content2").innerHTML =
+              xmlhttp.responseText;
+          }
+        };
+        xmlhttp.open("GET", "themnuochoa.php", true);
+        xmlhttp.send();
+      }
+      function lietKeNuocHoa() {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+          // code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp = new XMLHttpRequest();
+        } else {
+          // code for IE6, IE5
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("content2").innerHTML =
+              xmlhttp.responseText;
+          }
+        };
+        xmlhttp.open("GET", "lietkesp.php", true);
+        xmlhttp.send();
+      }
+      function lietKeTenHieu(tenhieu) {
+        console.log(tenhieu);
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+          // code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp = new XMLHttpRequest();
+        } else {
+          // code for IE6, IE5
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("content3").innerHTML =
+              xmlhttp.responseText;
+          }
+        };
+        xmlhttp.open("GET", "lietkespPHP.php?tenhieu=" + tenhieu, true);
+        xmlhttp.send();
+      }
+    </script>
+    <script src="./scriptJS.js"></script>
+  </body>
+</html>
